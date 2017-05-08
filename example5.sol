@@ -1,6 +1,6 @@
 pragma solidity ^0.4.10;
 
-//the very fourth example
+//the very fifth example
 contract Example5 {
 
     event Message(

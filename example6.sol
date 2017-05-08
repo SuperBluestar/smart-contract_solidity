@@ -1,6 +1,6 @@
 pragma solidity ^0.4.10;
 
-//the very fourth example
+//the very sixth example
 contract Example6 {
 
     mapping (address => mapping (bytes32 => uint)) stamps;
