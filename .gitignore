@@ -63,5 +63,4 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
-.gitignore
 .idea/

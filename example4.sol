@@ -1,7 +1,12 @@
 pragma solidity ^0.4.10;
 
-//the very third example
-contract Example3 {
+//the very fourth example
+contract Example4 {
+
+    event Message(
+        string msg
+    );
+
     struct Account {
         string addr;
         uint amount; //default is 256bits
@@ -11,7 +16,7 @@ contract Example3 {
     mapping (uint => Account) accounts;
     address owner;
 
-    function Example3(string addr) {
+    function Example4(string addr) {
         accounts[counter++] = Account(addr, 42);
         owner = msg.sender;
     }
@@ -23,6 +28,7 @@ contract Example3 {
     function set(uint nr, string addr) returns (bool) {
         if(owner == msg.sender) {
             accounts[counter++] = Account(addr, nr);
+            Message("all set!");
             return true;
         } else {
             return false;

@@ -14,7 +14,7 @@ contract Example2 {
         accounts[counter++] = Account(addr, 42);
     }
 
-    function get(uint nr) constant returns (string addr) {
+    function get(uint nr) constant returns (string) {
         return accounts[nr].addr;
     }
 }
