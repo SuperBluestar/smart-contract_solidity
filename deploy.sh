@@ -2,6 +2,8 @@
 
 #Set a secure password
 PASSWORD="123456"
+ARG=""
+if [ -n "$2" ]; then ARG="\"$2\","; fi
 
 echo "var output=`solc --optimize --combined-json abi,bin,interface $1`;" > /tmp/test.js
 
@@ -12,7 +14,7 @@ for (var i in array) {
   var bytecode = '0x' + output.contracts[array[i]].bin;
   var txDeploy = {from:eth.accounts[0], data: bytecode, gas: 4700000}; 
   personal.unlockAccount(eth.accounts[0], "$PASSWORD");
-  var test = contract.new(txDeploy,
+  var test = contract.new($ARG txDeploy,
     function (e, contract) {
       if (typeof contract.address !== 'undefined') {
         console.log('Contract mined! address: ' + contract.address + ' transactionHash: ' + contract.transactionHash);
