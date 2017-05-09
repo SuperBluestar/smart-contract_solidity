@@ -23,7 +23,7 @@ contract Example7 {
         }
     }
 
-    function balance() constant returns (uint) {
-        return accounts[msg.sender];
+    function balance(address addr) constant returns (uint) {
+        return accounts[addr];
     }
 }
