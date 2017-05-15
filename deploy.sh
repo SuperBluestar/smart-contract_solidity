@@ -13,7 +13,8 @@ for (var i in array) {
   var contract = eth.contract(JSON.parse(output.contracts[array[i]].abi));
   var bytecode = '0x' + output.contracts[array[i]].bin;
   var txDeploy = {from:eth.accounts[0], data: bytecode, gas: 4700000}; 
-  personal.unlockAccount(eth.accounts[0], "$PASSWORD");
+  personal.unlockAccount(eth.accounts[0], "$PASSWORD", 999999);
+  personal.unlockAccount(eth.accounts[1], "$PASSWORD", 999999);
   var test = contract.new($ARG txDeploy,
     function (e, contract) {
       if (typeof contract.address !== 'undefined') {
