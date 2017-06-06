@@ -12,7 +12,7 @@ contract Example7 {
 
     function mint(address recipient, uint value) {
         if(msg.sender == owner) {
-            accounts[recipient] = value;
+            accounts[recipient] += value;
         }
     }
 
